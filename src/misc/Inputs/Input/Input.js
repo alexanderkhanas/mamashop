@@ -12,7 +12,7 @@ const Input = ({ Icon, type = "text", placeholder, ...rest }) => {
         {...{ placeholder }}
         {...rest}
       />
-      {!!Icon && <Icon className={s.eye} />}
+      {Icon && <Icon className={s.eye} />}
     </div>
   );
 };

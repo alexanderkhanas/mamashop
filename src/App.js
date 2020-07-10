@@ -31,12 +31,12 @@ function App() {
       <Switch>
         <Route path="/" component={Home} exact />
         <MobileRoute
-          path="/register"
+          path="/login"
           DesktopComponent={DesktopAuth}
           MobileComponent={MobileAuth}
         />
         <MobileRoute
-          path="/login"
+          path="/register"
           DesktopComponent={DesktopAuth}
           MobileComponent={Registration}
         />

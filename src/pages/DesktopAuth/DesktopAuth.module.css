@@ -81,7 +81,7 @@
   width: 100%;
 }
 
-button {
+.auth button {
   border-radius: 20px;
   border: 1px solid #ff4b2b;
   background: #ff445c;
@@ -94,15 +94,15 @@ button {
   transition: transform 80ms ease-in;
 }
 
-button:active {
+.auth button:active {
   transform: scale(0.95);
 }
 
-button:focus {
+.auth button:focus {
   outline: none;
 }
 
-button.ghost {
+.auth button.ghost {
   background: transparent;
   border-color: #fff;
 }
