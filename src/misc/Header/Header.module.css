@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ff0066;
+  align-items: center;
+  padding: 25px 20px;
+  max-height: 40px;
+  box-sizing: border-box;
+  border-bottom: 1px solid white;
+}
+
+.subHeader {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ff0066;
+  align-items: center;
+  padding: 5px 15px;
+  max-height: 30px;
+  box-sizing: border-box;
+}
+
+.catalog {
+  color: white;
+}
+
+.logo > img {
+  height: 42px;
+}

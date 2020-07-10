@@ -1,0 +1,16 @@
+.input {
+  border-radius: 30px;
+  outline: none;
+  border: 0.5px solid #7e858080;
+  padding: 15px;
+  width: 100%;
+}
+.container__input {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.eye {
+  position: absolute;
+  right: 20px;
+}

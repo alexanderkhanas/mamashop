@@ -1,10 +1,17 @@
 import React, { useState } from "react";
-import s from "./Register.module.css";
+import s from "./DesktopAuth.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faFacebook } from "@fortawesome/free-brands-svg-icons";
-import { Formik } from "formik";
+import { Formik, ErrorMessage } from "formik";
+import Input from "../../misc/Inputs/Input/Input";
+import {
+  faCheck,
+  faCheckCircle,
+  faExclamation,
+  faExclamationCircle,
+} from "@fortawesome/free-solid-svg-icons";
 
-const Register = (props) => {
+const DesktopAuth = (props) => {
   const [isRegister, setRegister] = useState(false);
   const setFormRegister = () => setRegister(true);
   const setFormLogin = () => setRegister(false);
@@ -21,32 +28,38 @@ const Register = (props) => {
         >
           <div className={`${s["form-container"]} ${s["sign-up-container"]}`}>
             <form action="#">
-              <h1>Create Account</h1>
+              <h1>Створити акаунт</h1>
               <div className={`${s["social-container"]}`}>
                 <FontAwesomeIcon icon={faGoogle} className={s.brand__icon} />
                 <FontAwesomeIcon icon={faFacebook} className={s.brand__icon} />
-                {/* <a href="#" className={s.social}>
-                  <i className={`${} ${s["fa-facebook-f"]}`"fab "} />
-                </a>
-                <a href="#" className="social">
-                  <i className="fab fa-google-plus-g" />
-                </a>
-                <a href="#" className="social">
-                  <i className="fab fa-linkedin-in" />
-                </a> */}
               </div>
-              <span>or use your email for registration</span>
+              <span>або використайте електронну пошту для реєстрації</span>
               <input type="text" placeholder="Name" />
               <input type="email" placeholder="Email" />
               <input type="password" placeholder="Password" />
-              <button>Sign Up</button>
+              <button>Зареєструватись</button>
             </form>
           </div>
           <div className={`${s["form-container"]} ${s["sign-in-container"]}`}>
             <Formik
               initialValues={{ email: "", password: "" }}
               validate={(values) => {
-                console.log(values);
+                const errors = {};
+                if (values.password.length <= 5) {
+                  errors.password = "Занадто короткий пароль";
+                }
+                if (!values.email) {
+                  errors.email = "Введіть електронну пошту";
+                } else if (
+                  !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+                ) {
+                  errors.email = "Невірно введена електронна пошта";
+                }
+                return errors;
+              }}
+              onSubmit={(values, { setSubmitting }) => {
+                alert(JSON.stringify(values));
+                prompt("TY PISYA?");
               }}
             >
               {({
@@ -58,8 +71,24 @@ const Register = (props) => {
                 handleSubmit,
                 isSubmitting,
               }) => {
+                console.log("values :", values);
+
+                const SuccessIcon = () => (
+                  <FontAwesomeIcon
+                    icon={faCheckCircle}
+                    className={`${s.icon} ${s.success__icon}`}
+                  />
+                );
+
+                const ErrorIcon = () => (
+                  <FontAwesomeIcon
+                    icon={faExclamationCircle}
+                    className={`${s.icon} ${s.error__icon}`}
+                  />
+                );
+
                 return (
-                  <form action="#">
+                  <form onSubmit={handleSubmit}>
                     <h1>Увійдіть, щоб робити покупки</h1>
                     <div className={s["social-container"]}>
                       <FontAwesomeIcon
@@ -72,19 +101,23 @@ const Register = (props) => {
                       />
                     </div>
                     <span>або використайте електронну пошту </span>
-                    <input
-                      value={values.email}
+                    <Input
                       onChange={handleChange}
                       onBlur={handleBlur}
+                      Icon={!errors.email ? SuccessIcon : ErrorIcon}
+                      name="email"
+                      value={values.email}
                       type="email"
-                      placeholder="Email"
+                      placeholder="example@gmail.com"
                     />
-                    <input
+                    <Input
                       value={values.password}
                       onChange={handleChange}
                       onBlur={handleBlur}
+                      Icon={!errors.password ? SuccessIcon : ErrorIcon}
+                      name="password"
                       type="password"
-                      placeholder="Password"
+                      placeholder="••••••••"
                     />
                     <a href="#">Забули пароль?</a>
                     <button>Увійти</button>
@@ -96,19 +129,21 @@ const Register = (props) => {
           <div className={s["overlay-container"]}>
             <div className={s.overlay}>
               <div className={`${s["overlay-panel"]} ${s["overlay-left"]}`}>
-                <h1>Welcome Back!</h1>
-                <p>
-                  To keep connected with us please login with your personal info
-                </p>
+                <h1>Ласкаво просимо!</h1>
+                <p>Щоб робити покупки увійдіть у свій обліковий запис</p>
                 <button onClick={setFormLogin} className={s.ghost} id="signIn">
-                  Sign In
+                  Увійти
                 </button>
               </div>
               <div className={`${s["overlay-panel"]} ${s["overlay-right"]}`}>
-                <h1>Hello, Friend!</h1>
-                <p>Enter your personal details and start journey with us</p>
-                <button onClick={setFormRegister} className="ghost" id="signUp">
-                  Sign Up
+                <h1>Раді вас бачити!</h1>
+                <p>Зареєструйтесь, якщо ви у нас вперше </p>
+                <button
+                  onClick={setFormRegister}
+                  className={s.ghost}
+                  id="signUp"
+                >
+                  Зареєструватись
                 </button>
               </div>
             </div>
@@ -119,4 +154,4 @@ const Register = (props) => {
   );
 };
 
-export default Register;
+export default DesktopAuth;
