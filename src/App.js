@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Footer from "./misc/Footer/Footer";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
 
 function App() {
   return (
@@ -15,6 +17,12 @@ function App() {
       <Switch>
         <Route path="/" exact>
           <Home />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/register">
+          <Register />
         </Route>
       </Switch>
       <Footer />
