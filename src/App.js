@@ -14,6 +14,7 @@ import Register from "./pages/DesktopAuth/DesktopAuth";
 import MobileAuth from "./pages/MobileAuth/MobileAuth";
 import Registration from "./pages/Registration/Registration";
 import DesktopAuth from "./pages/DesktopAuth/DesktopAuth";
+import Cart from "./pages/Cart/Cart";
 
 const MobileRoute = ({ path, DesktopComponent, MobileComponent }) => {
   return (
@@ -40,6 +41,7 @@ function App() {
           DesktopComponent={DesktopAuth}
           MobileComponent={Registration}
         />
+        <Cart path="/cart" component={Cart} />
       </Switch>
       <Footer />
     </Router>

@@ -1,0 +1,16 @@
+.body div {
+  font-family: Neucha-Regular;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  text-align: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.title {
+  font-weight: 1000;
+  margin-bottom: 5vh;
+}

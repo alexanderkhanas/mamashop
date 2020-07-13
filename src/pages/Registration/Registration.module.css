@@ -36,18 +36,24 @@
   align-items: center;
 }
 
-.fbt button {
-  outline: none;
-  background: none;
-  border: none;
+.icon {
+  position: absolute;
+  right: 15px;
+  font-size: 25px;
+}
+
+.error__icon {
+  color: #e80000;
+}
+.success__icon {
+  color: #00d231;
 }
 .logwith {
   padding: 20px;
   display: flex;
-  padding-top: 5vh;
   justify-content: center;
 }
-.icon {
+.logicon {
   font-size: 30px;
 }
 .gl {
