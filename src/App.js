@@ -9,20 +9,12 @@ import {
 import Home from "./pages/Home/Home";
 import Header from "./misc/Header/Header";
 import Footer from "./misc/Footer/Footer";
-import Login from "./pages/Login/Login";
-import Register from "./pages/DesktopAuth/DesktopAuth";
 import MobileAuth from "./pages/MobileAuth/MobileAuth";
-import Registration from "./pages/Registration/Registration";
+import Registration from "./pages/MobileRegister/MobileRegister";
 import DesktopAuth from "./pages/DesktopAuth/DesktopAuth";
-
-const MobileRoute = ({ path, DesktopComponent, MobileComponent }) => {
-  return (
-    <Route
-      component={window.innerWidth <= 500 ? MobileComponent : DesktopComponent}
-      {...{ path }}
-    />
-  );
-};
+import Profile from "./pages/Profile/Profile";
+import { PrivateRoute, MobileRoute } from "./utils/utils";
+import SingleProduct from "./pages/SingleProduct/SingleProduct";
 
 function App() {
   return (
@@ -30,6 +22,13 @@ function App() {
       <Header />
       <Switch>
         <Route path="/" component={Home} exact />
+        <Route path="/product/:name" component={SingleProduct} />
+        <PrivateRoute
+          path="/profile"
+          Component={Profile}
+          redirectTo="/login"
+          condition={true}
+        />
         <MobileRoute
           path="/register"
           DesktopComponent={DesktopAuth}

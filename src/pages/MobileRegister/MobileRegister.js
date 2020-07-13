@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import s from "./Registration.module.css";
+import s from "./MobileRegister.module.css";
 import Input from "../../misc/Inputs/Input/Input";
 import Button from "../../misc/Buttons/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,7 +7,7 @@ import { faGoogle, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import usePasswordToogle from "../../hooks/usePasswordToogle";
 
-const Registration = () => {
+const MobileRegister = () => {
   const [passwordInputType, ToogleIcon] = usePasswordToogle();
   const [confirm, setConfirm] = usePasswordToogle();
 
@@ -41,7 +41,7 @@ const Registration = () => {
             Погоджуюся з політикою кофіденційності
           </p>
         </div>
-        <Button />
+        <Button title="Зареєструватись" />
         <div className={s.logwith}>
           <FontAwesomeIcon icon={faGoogle} className={`${s.icon} ${s.gl}`} />
           <FontAwesomeIcon icon={faFacebook} className={`${s.icon} ${s.fb} `} />
@@ -51,4 +51,4 @@ const Registration = () => {
   );
 };
 
-export default Registration;
+export default MobileRegister;

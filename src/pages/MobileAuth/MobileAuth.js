@@ -22,7 +22,7 @@ const MobileAuth = () => {
           <label className={s.label}>Ваш пароль</label>
           <Input type={passwordInputType} Icon={ToogleIcon} />
         </div>
-        <Button />
+        <Button title="Увійти" />
         <div className={s.fbt}>
           <button className={s.restore}>Відновити акаунт</button>
           <button className={s.reg}>
