@@ -32,25 +32,53 @@ const SingleProduct = (props) => {
   return (
     <MainWrapper>
       <BreadCrumbs items={breadCrumbsItems} />
-      <div className={s.desktop__card}>
-        <div className={s.desktop__card__container}>
-          <div className={s.new__tag}>
-            <span>New</span>
-          </div>
+      {window.innerWidth > 850 ? (
+        <div className={s.desktop__card}>
+          <div className={s.desktop__card__container}>
+            <div className={s.new__tag}>
+              <span>New</span>
+            </div>
 
-          <Carousel images={gallery} />
-          <CardWrapper style={{ marginLeft: "20px", width: "60%" }}>
-            <div className={s.desktop__card__info}>
-              <div className={s.desktop__card__texts}>
-                <h2 className={s.desktop__card__title}>{title}</h2>
-                <p className={s.desktop__card__desc}>
+            <Carousel images={gallery} />
+            <CardWrapper className={s.desktop__card__info__cont}>
+              <div className={s.desktop__card__info}>
+                <div className={s.desktop__card__texts}>
+                  <h2 className={s.desktop__card__title}>{title}</h2>
+                  <p className={s.desktop__card__desc}>
+                    {desc.slice(0, 300)}...
+                    <button onClick={() => {}}>Дізнатись більше</button>
+                    <Stars containerClass={s.stars} value={4} />
+                  </p>
+                </div>
+                <div className={s.desktop__card__actions}>
+                  <h3>{price}₴ </h3>
+                  <Button
+                    title="Купити"
+                    Icon={<FontAwesomeIcon icon={faShoppingBag} />}
+                  />
+                </div>
+              </div>
+            </CardWrapper>
+          </div>
+        </div>
+      ) : (
+        <div className={s.mobile__card}>
+          <CardWrapper className={s.mobile__card__info__cont}>
+            <div className={s.mobile__card__info}>
+              <div className={s.mobile__card__texts}>
+                <h2 className={s.mobile__card__title}>{title}</h2>
+                <Carousel
+                  images={gallery}
+                  className={s.mobile__card__gallery}
+                />
+                {/* <p className={s.mobile__card__desc}>
                   {desc.slice(0, 300)}...
                   <button onClick={() => {}}>Дізнатись більше</button>
                   <Stars containerClass={s.stars} value={4} />
-                </p>
+                </p> */}
               </div>
-              <div className={s.desktop__card__actions}>
-                <h3>{price}₴ </h3>
+              <div className={s.mobile__card__actions}>
+                <h3 className={s.mobile__card__price}>{price}₴ </h3>
                 <Button
                   title="Купити"
                   Icon={<FontAwesomeIcon icon={faShoppingBag} />}
@@ -59,8 +87,7 @@ const SingleProduct = (props) => {
             </div>
           </CardWrapper>
         </div>
-      </div>
-      <div className={s.mobile__card}></div>
+      )}
       <div className={s.desc}>
         <Tabs>
           <TabList
@@ -113,9 +140,16 @@ const SingleProduct = (props) => {
                 console.log("submit");
               }}
             >
-              {({ handleChange, handleBlur, handleSubmit, values, errors }) => {
+              {({
+                handleChange,
+                handleBlur,
+                handleSubmit,
+                values,
+                errors,
+                touched,
+              }) => {
                 return (
-                  <CardWrapper maxWidth={"600px"}>
+                  <CardWrapper>
                     <form onSubmit={handleSubmit}>
                       <h5>Залишити відгук</h5>
                       <Stars
@@ -129,7 +163,7 @@ const SingleProduct = (props) => {
                         label="Ваше ім'я"
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        isError={!!errors.name}
+                        isError={!!errors.name && !!touched.name}
                         placeholder="Іван"
                         name="name"
                         value={values.name}
@@ -139,7 +173,7 @@ const SingleProduct = (props) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.review}
-                        isError={!!errors.review}
+                        isError={!!errors.review && !!touched.review}
                         name="review"
                         placeholder="Все сподобалось, товар хорошої якості"
                       />
