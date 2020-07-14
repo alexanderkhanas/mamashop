@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
   height: 92vh;
+  font-family: Neucha-Regular;
 }
 .auth h1 {
   font-weight: bold;
@@ -30,7 +31,7 @@
   color: #333;
   font-size: 14px;
   text-decoration: none;
-  margin: 15px 0;
+  margin-top: 15px;
 }
 
 .container {
@@ -41,7 +42,7 @@
   overflow: hidden;
   width: 768px;
   max-width: 100%;
-  min-height: 480px;
+  min-height: 550px;
 }
 
 .form-container form {
@@ -77,7 +78,7 @@
   background: #eee;
   border: none;
   padding: 12px 15px;
-  margin: 8px 0;
+  margin-top: 8px;
   width: 100%;
 }
 
@@ -92,17 +93,18 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
+  margin-top: 15px;
 }
 
-.auth button:active {
+.button:active {
   transform: scale(0.95);
 }
 
-.auth button:focus {
+.button:focus {
   outline: none;
 }
 
-.auth button.ghost {
+.button.ghost {
   background: transparent;
   border-color: #fff;
 }

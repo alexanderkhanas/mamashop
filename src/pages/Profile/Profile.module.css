@@ -1,0 +1,35 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.container h1 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.card span {
+  color: #61dafb;
+}
+
+.icon {
+  color: #ccc;
+  margin-right: 8px;
+}
+
+.card__inner input {
+  margin-top: 5px;
+}
+
+.card__inner h3 {
+  color: #000;
+}
+
+.button__container {
+  align-self: flex-end;
+}
+
+.card__container {
+  margin-bottom: 20px;
+}

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import s from "./CartItem.module.css";
-import product from "./../../pages/Cart/CardProduct";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import CardWrapper from "../../wrappers/CardWrapper/CardWrapper";
 
-const CartItem = ({ product }) => {
-  const { title, gallery, price } = product;
+const CartItem = ({ product, remove }) => {
+  const { title, gallery, price, id } = product;
   const [counter, setCounter] = useState(1);
 
   const increaseCounter = () => {
@@ -18,19 +20,35 @@ const CartItem = ({ product }) => {
   useEffect(() => {
     console.log(counter);
   }, [counter]);
+
   return (
-    <div>
-      <div>{title}</div>
-      <div className={s.couner}>
-        <button onClick={decreaseCounter} className={s.counter}>
-          -
-        </button>
-        {counter}
-        <button onClick={increaseCounter} className={s.counter}>
-          +
-        </button>
+    <CardWrapper>
+      <div className={s.desktop__card__actions}>
+        <div>
+          <img src={gallery[1]} className={s.img} />
+        </div>
+        <div className={s.custom__wrapper}>
+          <h3>{title}</h3>
+          <div className={s.item__down__wrapper}>
+            <div className={s.card_items}>
+              <span>${price}</span>
+              <div className={s.couner}>
+                <button onClick={decreaseCounter} className={s.counter}>
+                  -
+                </button>
+                {counter}
+                <button onClick={increaseCounter} className={s.counter}>
+                  +
+                </button>
+              </div>
+            </div>
+            <div className={s.icon}>
+              <FontAwesomeIcon icon={faTrashAlt} onClick={() => remove(id)} />
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </CardWrapper>
   );
 };
 

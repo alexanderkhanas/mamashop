@@ -1,8 +1,18 @@
 .button {
-  width: 100%;
   border: none;
   border-radius: 30px;
   background-color: #ff0066;
   box-sizing: border-box;
-  padding: 15px;
+  padding: 10px 20px;
+  font-size: 20px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.button svg {
+  margin-right: 10px;
+}
+
+.button__error {
+  background: #ccc;
 }

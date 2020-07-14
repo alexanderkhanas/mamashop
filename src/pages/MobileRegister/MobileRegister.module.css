@@ -1,17 +1,29 @@
 .body div {
   font-family: Neucha-Regular;
 }
+
+.body {
+  -webkit-box-shadow: 0px 1px 9px -2px rgba(99, 99, 99, 0.406);
+  -moz-box-shadow: 0px 1px 9px -2px rgba(99, 99, 99, 0.406);
+  box-shadow: 0px 1px 9px -2px rgba(99, 99, 99, 0.406);
+  padding: 10px;
+  border-radius: 33px;
+  margin: 0 auto 50px auto;
+  margin: 15px;
+}
+
 .container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  padding: 15px;
+  border: 1px dashed #61dafb;
+  border-radius: 25px;
   text-align: center;
   justify-content: center;
-  padding: 20px;
 }
 .title {
   font-weight: 1000;
-  margin-bottom: 5vh;
+  margin-bottom: 20px;
 }
 .label {
   text-align: left;

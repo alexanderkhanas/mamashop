@@ -1,16 +1,26 @@
-.body div {
+.body {
   font-family: Neucha-Regular;
-}
-.container {
   display: flex;
-  flex-direction: column;
-  height: 100vh;
-  text-align: center;
   justify-content: center;
+  align-items: center;
+}
+.title {
+  text-align: center;
+  margin: 50px 0;
+}
+.bottom_container {
   padding: 20px;
 }
-
-.title {
-  font-weight: 1000;
-  margin-bottom: 5vh;
+.bottom_bt {
+  display: flex;
+  justify-content: space-between;
+}
+.number {
+  display: flex;
+  text-align: right;
+}
+.sum,
+.bonus {
+  display: flex;
+  justify-content: space-between;
 }

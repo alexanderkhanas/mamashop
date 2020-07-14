@@ -1,5 +1,6 @@
 const product = [
   {
+    id: 1,
     title: "Набір-сюрприз LOL Surprise S6 Hairvibes",
     gallery: [
       "https://www.lokeshdhakar.com/projects/lightbox2/images/image-3.jpg",
@@ -10,6 +11,7 @@ const product = [
     price: 550,
   },
   {
+    id: 2,
     title: "Набір-сюрприз LOL Surprise S6 Hairvibes",
     gallery: [
       "https://www.lokeshdhakar.com/projects/lightbox2/images/image-3.jpg",
@@ -20,6 +22,7 @@ const product = [
     price: 550,
   },
   {
+    id: 3,
     title: "Набір-сюрприз LOL Surprise S6 Hairvibes",
     gallery: [
       "https://www.lokeshdhakar.com/projects/lightbox2/images/image-3.jpg",

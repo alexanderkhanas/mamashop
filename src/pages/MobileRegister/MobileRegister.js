@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import s from "./Registration.module.css";
+import s from "./MobileRegister.module.css";
 import Input from "../../misc/Inputs/Input/Input";
 import Button from "../../misc/Buttons/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,7 +14,7 @@ import usePasswordToogle from "../../hooks/usePasswordToogle";
 import { Formik, ErrorMessage } from "formik";
 import PhoneNumberInput from "../../misc/Inputs/PhoneNumberInput/PhoneNumberInput";
 
-const Registration = (props) => {
+const MobileRegister = (props) => {
   const [isRegister, setRegister] = useState(false);
   const setFormRegister = () => setRegister(true);
   const setFormLogin = () => setRegister(false);
@@ -153,4 +153,4 @@ const Registration = (props) => {
   );
 };
 
-export default Registration;
+export default MobileRegister;
