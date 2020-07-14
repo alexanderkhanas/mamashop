@@ -5,9 +5,8 @@
 }
 
 .main__image {
-  width: 75%;
+  width: 600px;
   height: 250px;
-  object-fit: cover;
   margin-right: 10px;
 }
 
@@ -17,7 +16,7 @@
 }
 
 .secondary__image {
-  width: 100%;
+  width: 100px;
   height: 80px;
   margin-bottom: 10px;
   cursor: pointer;
@@ -65,14 +64,13 @@
     width: 100%;
   }
   .main__image {
-    width: 70%;
+    width: 500px;
     height: 350px;
-    object-fit: cover;
     margin-right: 10px;
   }
 
   .secondary__image {
-    width: 100%;
+    width: 150px;
     height: 120px;
     margin-bottom: 10px;
     cursor: pointer;
@@ -84,14 +82,13 @@
     width: 100%;
   }
   .main__image {
-    width: 70%;
     height: 250px;
-    object-fit: cover;
     margin-right: 10px;
+    width: 67vw;
   }
 
   .secondary__image {
-    width: 100%;
+    width: 17vw;
     height: 80px;
     margin-bottom: 10px;
     cursor: pointer;
