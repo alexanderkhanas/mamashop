@@ -16,38 +16,40 @@ import Cart from "./pages/Cart/Cart";
 import Profile from "./pages/Profile/Profile";
 import { PrivateRoute, MobileRoute } from "./utils/utils";
 import SingleProduct from "./pages/SingleProduct/SingleProduct";
-import NoMatchPage from "./pages/404/404";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import rootReducer from "./store/reducers/rootReducer";
+import thunk from "redux-thunk";
 
 function App() {
+  const store = createStore(rootReducer, applyMiddleware(thunk));
   return (
-    <Router>
-      <Header />
-      <Switch>
-        <Route path="/" component={Home} exact />
-        <Route path="/product/:name" component={SingleProduct} />
-        <PrivateRoute
-          path="/profile"
-          Component={Profile}
-          redirectTo="/login"
-          condition={true}
-        />
-        <MobileRoute
-          path="/login"
-          DesktopComponent={DesktopAuth}
-          MobileComponent={MobileAuth}
-        />
-        <MobileRoute
-          path="/register"
-          DesktopComponent={DesktopAuth}
-          MobileComponent={Registration}
-        />
-        <Cart path="/cart" component={Cart} />
-        <Route path="*">
-          <NoMatchPage />
-        </Route>
-      </Switch>
-      <Footer />
-    </Router>
+    <Provider {...{ store }}>
+      <Router>
+        <Header />
+        <Switch>
+          <Route path="/" component={Home} exact />
+          <Route path="/product/:id" component={SingleProduct} />
+          <PrivateRoute
+            path="/profile"
+            Component={Profile}
+            redirectTo="/login"
+            condition={true}
+          />
+          <MobileRoute
+            path="/register"
+            DesktopComponent={DesktopAuth}
+            MobileComponent={MobileAuth}
+          />
+          <MobileRoute
+            path="/login"
+            DesktopComponent={DesktopAuth}
+            MobileComponent={Registration}
+          />
+        </Switch>
+        <Footer />
+      </Router>
+    </Provider>
   );
 }
 

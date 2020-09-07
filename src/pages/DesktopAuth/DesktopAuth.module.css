@@ -96,15 +96,15 @@
   margin-top: 15px;
 }
 
-.button:active {
+.auth button:active {
   transform: scale(0.95);
 }
 
-.button:focus {
+.auth button:focus {
   outline: none;
 }
 
-.button.ghost {
+.auth button.ghost {
   background: transparent;
   border-color: #fff;
 }

@@ -10,7 +10,7 @@ const BreadCrumbs = ({ items }) => {
         const text = isLast ? name : `${name} / `;
         const className = isLast ? s.last__crumb : s.crumb;
         return (
-          <Link to={path} className={s.link}>
+          <Link to={path} key={i} className={s.link}>
             {!!icon && icon}
             <span {...{ className }} key={i}>
               {text}

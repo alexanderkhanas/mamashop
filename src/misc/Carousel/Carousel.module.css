@@ -1,12 +1,12 @@
 .container {
   display: flex;
   position: relative;
-  width: 60%;
+  width: 55%;
 }
 
 .main__image {
-  width: 24vw;
-  height: 16vw;
+  width: 600px;
+  height: 250px;
   margin-right: 10px;
 }
 
@@ -16,8 +16,8 @@
 }
 
 .secondary__image {
-  width: 8vw;
-  height: 6vw;
+  width: 100px;
+  height: 80px;
   margin-bottom: 10px;
   cursor: pointer;
 }
@@ -57,4 +57,40 @@
 
 .secondary__image__active {
   border: 3px solid #ff0066;
+}
+
+@media (min-width: 700px) and (max-width: 800px) {
+  .container {
+    width: 100%;
+  }
+  .main__image {
+    width: 500px;
+    height: 350px;
+    margin-right: 10px;
+  }
+
+  .secondary__image {
+    width: 150px;
+    height: 120px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 650px) {
+  .container {
+    width: 100%;
+  }
+  .main__image {
+    height: 250px;
+    margin-right: 10px;
+    width: 67vw;
+  }
+
+  .secondary__image {
+    width: 17vw;
+    height: 80px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
 }

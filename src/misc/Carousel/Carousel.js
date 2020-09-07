@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { ReactComponent as ArrowIcon } from "../../assets/next.svg";
 
-const Carousel = ({ images }) => {
+const Carousel = ({ images, className }) => {
   const [activeImageId, setActiveImageId] = useState(0);
   const setNextImage = () => {
     setActiveImageId((prev) => (prev + 1 < images.length ? prev + 1 : 0));
@@ -18,7 +18,7 @@ const Carousel = ({ images }) => {
   }, [activeImageId]);
 
   return (
-    <div className={s.container}>
+    <div className={`${s.container} ${className}`}>
       <img
         className={s.main__image}
         src={images[activeImageId]}
