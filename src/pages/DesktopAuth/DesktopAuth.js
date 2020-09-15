@@ -3,6 +3,7 @@ import s from "./DesktopAuth.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { Formik, ErrorMessage } from "formik";
+import { connect } from "react-redux";
 import Input from "../../misc/Inputs/Input/Input";
 import {
   faCheck,
@@ -10,8 +11,9 @@ import {
   faExclamation,
   faExclamationCircle,
 } from "@fortawesome/free-solid-svg-icons";
+import { loginAction, registerAction } from "../../store/actions/profileAction";
 
-const DesktopAuth = (props) => {
+const DesktopAuth = ({ login, register }) => {
   const [isRegister, setRegister] = useState(false);
   const setFormRegister = () => setRegister(true);
   const setFormLogin = () => setRegister(false);
@@ -210,4 +212,15 @@ const DesktopAuth = (props) => {
   );
 };
 
-export default DesktopAuth;
+const mapStateToProps = (state) => {
+  return {};
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: (data) => dispatch(loginAction(data)),
+    register: (data) => dispatch(registerAction(data)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DesktopAuth);

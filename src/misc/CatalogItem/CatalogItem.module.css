@@ -1,0 +1,37 @@
+.desktop__card__actions {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 600px;
+  border-radius: 10px;
+}
+
+.card_items {
+  flex-direction: column;
+  justify-content: space-between;
+}
+.img {
+  margin-right: 25px;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+.stars {
+  padding: 5px 0;
+}
+
+.icon {
+  align-self: flex-end;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.price {
+  color: #ff0066;
+  font-weight: bold;
+}
+.buy__item {
+  color: gray;
+  margin-right: 5px;
+}

@@ -12,8 +12,10 @@ import {
   faCheckCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { Formik, ErrorMessage } from "formik";
+import { loginAction } from "../../store/actions/profileAction";
+import { connect } from "react-redux";
 
-const MobileAuth = (props) => {
+const MobileAuth = ({ login }) => {
   const [isRegister, setRegister] = useState(false);
   const setFormRegister = () => setRegister(true);
   const setFormLogin = () => setRegister(false);
@@ -95,7 +97,7 @@ const MobileAuth = (props) => {
                     />
                   </div>
 
-                  <Button />
+                  <Button title="Увійти" />
                   <div className={s.fbt}>
                     <button className={s.restore}>Відновити акаунт</button>
                     <button className={s.reg}>
@@ -123,4 +125,14 @@ const MobileAuth = (props) => {
   );
 };
 
-export default MobileAuth;
+const mapStateToProps = (state) => {
+  return {};
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: (data) => dispatch(loginAction(data)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MobileAuth);

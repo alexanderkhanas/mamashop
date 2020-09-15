@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import s from "./Header.module.css";
 import logo from "../../assets/logo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,15 +7,16 @@ import {
   faSearch,
   faBars,
   faShoppingCart,
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
+import { stack as Menu } from "react-burger-menu";
+import { Link, withRouter } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
 
 const Header = () => {
   return (
     <>
       <header className={s.header}>
-        <div className={s.menu}>
-          <FontAwesomeIcon icon={faBars} color="white" />
-        </div>
         <div className={s.logo}>
           <img src={logo} alt="logo" />
         </div>

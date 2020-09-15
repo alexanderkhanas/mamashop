@@ -13,8 +13,10 @@ import {
 import usePasswordToogle from "../../hooks/usePasswordToogle";
 import { Formik, ErrorMessage } from "formik";
 import PhoneNumberInput from "../../misc/Inputs/PhoneNumberInput/PhoneNumberInput";
+import { registerAction } from "../../store/actions/profileAction";
+import { connect } from "react-redux";
 
-const MobileRegister = (props) => {
+const MobileRegister = (register) => {
   const [isRegister, setRegister] = useState(false);
   const setFormRegister = () => setRegister(true);
   const setFormLogin = () => setRegister(false);
@@ -132,7 +134,7 @@ const MobileRegister = (props) => {
                       Погоджуюся з політикою кофіденційності
                     </p>
                   </div>
-                  <Button title="" disabled={!isAgree} />
+                  <Button title="Зареєструватись" disabled={!isAgree} />
                   <div className={s.logwith}>
                     <FontAwesomeIcon
                       icon={faGoogle}
@@ -152,5 +154,14 @@ const MobileRegister = (props) => {
     </div>
   );
 };
+const mapStateToProps = (state) => {
+  return {};
+};
 
-export default MobileRegister;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    register: (data) => dispatch(registerAction(data)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MobileRegister);

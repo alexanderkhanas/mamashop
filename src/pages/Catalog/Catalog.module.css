@@ -1,0 +1,22 @@
+.body {
+  font-family: Neucha-Regular;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.title {
+  text-align: center;
+  margin: 50px 0;
+}
+.product__container {
+  display: flex;
+  justify-content: space-around;
+  align-content: space-around;
+}
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow: hidden;
+}

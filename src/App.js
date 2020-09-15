@@ -20,6 +20,7 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./store/reducers/rootReducer";
 import thunk from "redux-thunk";
+import Catalog from "./pages/Catalog/Catalog";
 
 function App() {
   const store = createStore(rootReducer, applyMiddleware(thunk));
@@ -30,6 +31,8 @@ function App() {
         <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/product/:id" component={SingleProduct} />
+          <Route path="/cart" component={Cart} />
+          <Route path="/catalog" component={Catalog} />
           <PrivateRoute
             path="/profile"
             Component={Profile}
@@ -39,12 +42,12 @@ function App() {
           <MobileRoute
             path="/register"
             DesktopComponent={DesktopAuth}
-            MobileComponent={MobileAuth}
+            MobileComponent={Registration}
           />
           <MobileRoute
             path="/login"
             DesktopComponent={DesktopAuth}
-            MobileComponent={Registration}
+            MobileComponent={MobileAuth}
           />
         </Switch>
         <Footer />
